@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<BatchDataSet>
+<Meta>
+  <ModificationTime>2021-07-21 18:50:42.970903</ModificationTime>
+  <CreatedBy />
+  <ModificationTime>2021-07-21 18:50:42.970903</ModificationTime>
+  <ModificatedBy>not modified</ModificatedBy>
+  <Version>1.0</Version>
+  <CadVersion>20.0 Service Release 5</CadVersion>
+  </Meta>
+
+<Project>
+  <ProjectID>1</ProjectID>
+  <ProjectName>project</ProjectName>
+  </Project>
+
+<Element>
+  <ElementID>1</ElementID>
+  <ElementName>QWE</ElementName>
+  <ElementTypeStr>wall</ElementTypeStr>
+  <ElementFilePath>F:/Education/University/GitHub/Construct/NewVirEnv</ElementFilePath>
+  <ElementCount>1</ElementCount>
+</Element>
+
+<Beam>
+  <BeamID>1</BeamID>
+  <BeamElementID>1</BeamElementID>
+  <BeamSerial>224165</BeamSerial>
+  <BeamName>!!!!!!!!!</BeamName>
+  <BeamMaterialGrade>C375</BeamMaterialGrade>
+  <BeamRotation>90</BeamRotation>
+  <BeamXStart>0</BeamXStart>
+  <BeamYStart>0</BeamYStart>
+  <BeamZStart>0</BeamZStart>
+  <BeamXEnd>1000</BeamXEnd>
+  <BeamYEnd>0</BeamYEnd>
+  <BeamZEnd>0</BeamZEnd>
+  <BeamLength>1000</BeamLength>
+</Beam>
+
+<Detail>
+  <DetailID>1</DetailID>
+  <DetailBeamID>1</DetailBeamID>
+  <DetailType>Front</DetailType>
+  <DetailName>Straight</DetailName>
+  <DetailXPos>0</DetailXPos>
+  <DetailYPos>0</DetailYPos>
+  <DetailProfileFace>Web</DetailProfileFace>
+  </Detail>
+
+<Detail>
+  <DetailID>2</DetailID>
+  <DetailBeamID>1</DetailBeamID>
+  <DetailType>End</DetailType>
+  <DetailName>Straight</DetailName>
+  <DetailXPos>0</DetailXPos>
+  <DetailYPos>0</DetailYPos>
+  <DetailProfileFace>Web</DetailProfileFace>
+  </Detail>
+
+</BatchDataSet>
