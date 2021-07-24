@@ -241,51 +241,6 @@ form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 #---------------------------------------------------
 print(current_machine_id)
-# hash MD5
-
-# try:
-#     with connect(
-#             host="localhost",
-#             #user=input("Введите имя пользователя: "),   # root
-#             # password = input('Enter Password:'),  #vipmost2007
-#             user="root",
-#             password="vipmost2007",
-#             database="users",
-#             buffered=True,  #for cursor
-#     ) as connection:
-#         # query = """
-#         # INSERT INTO users_table
-#         # (unique_id, is_main_access, is_sub_access, license_key)
-#         # VALUES( %s, %s, %s, %s )
-#         # """
-#         # users_records = [
-#         #     ("01DE20FA-6BB8-41C3-AC4E-003D24CAE5A4", "1", "1", "66d33a07105a3f9b5a23345177468ad7"),
-#         #     ("01DE50FA-6GB8-41C3-AC4E-009D24CDE5A4", "1", "0", "f9e47499d4b82c9ab3d475bdf964b53a"),
-#         # ]
-#         # query_update="""
-#         # UPDATE
-#         #     users_table
-#         # SET
-#         #     is_sub_access = "1"
-#         # WHERE
-#         #     unique_id = "01DE20FA-6BB8-41C3-AC4E-003D24CAE5A4"
-#         # """
-#         # query_show_table="SELECT * FROM users_table"
-#         # get string from table with current user uuid to compare true lic key and key, provided by user
-#         query_compare_key="SElECT license_key FROM users_table WHERE unique_id=" + "\"" + str(current_machine_id)+ "\""
-#         query_registration = "SELECT id FROM users_table WHERE unique_id="+ "\"" + str(current_machine_id)+ "\""
-#         with connection.cursor() as cursor:
-#             # cursor.executemany(query, users_records)
-#             cursor.execute(query_compare_key)
-#             connection.commit()
-#             result = cursor.fetchall()   # Получить строки из последнего выполненного запроса
-#             cursor.execute(query_registration)
-#             result2=cursor.fetchone()
-# except Error as e:
-#     print(e)
-
-
-
 
 is_user_exits = str(is_user_exist()) #FIRSTLY need to know is user exists
 at_start_license()

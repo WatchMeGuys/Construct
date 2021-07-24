@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Limbo" />
       <excludeFolder url="file://$MODULE_DIR$/NewVirEnv/env" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (LimboApp)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (Construct) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
