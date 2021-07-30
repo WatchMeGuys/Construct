@@ -1,11 +1,14 @@
-import os,sys
+import os, sys
 import hashlib
 import subprocess
+from datetime import datetime
+import random
 
 from mysql.connector import connect, Error
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtGui import QDoubleValidator
 
 
 
@@ -72,7 +75,7 @@ def on_click_select_folder():
     form.label_4.setText(mydir)
 
 def click_run():
-    pass
+    encrypt()
 
 def queryToDb(my_query):
     res="lol"
@@ -231,14 +234,189 @@ def checkSupremeAccess():
         except Error as e:
             print(e)
 
+
+# --------------------- encrypt ---------------------
+def encrypt():
+    current_time = datetime.now()
+    project_name = str(form.Project_name.text())
+    element_name = str(form.Element_name.text())
+    material = str('C375')  #### material could change, constant value
+    lenght = str(form.Length.text())
+    detail_id = int(1)
+    detailBeam_id = int(1)
+    fileName = str(form.Project_name.text()+' - '+form.Element_name.text())
+    
+    f = open(fileName+'.xml', 'w')
+    f.write('<?xml version="1.0" encoding="utf-8"?>')
+    f.write("\n\n")
+    f.write('<BatchDataSet>')
+    f.write("\n")
+    f.write('<Meta>')
+    f.write("\n")
+    f.write('  <ModificationTime>')
+    f.write(str(current_time))
+    f.write('</ModificationTime>')
+    f.write("\n")
+    f.write('  <CreatedBy />')
+    f.write("\n")
+    f.write('  <ModificationTime>')
+    f.write(str(current_time))
+    f.write('</ModificationTime>')
+    f.write("\n")
+    f.write('  <ModificatedBy>not modified</ModificatedBy>')
+    f.write("\n")
+    f.write('  <Version>1.0</Version>')
+    f.write("\n")
+    f.write('  <CadVersion>20.0 Service Release 5</CadVersion>')
+    f.write("\n")
+    f.write('  </Meta>')
+    f.write("\n\n")
+
+    f.write('<Project>')
+    f.write("\n")
+    f.write('  <ProjectID>1</ProjectID>')
+    f.write("\n")
+    f.write('  <ProjectName>')
+    f.write(str(project_name))
+    f.write('</ProjectName>')
+    f.write("\n")
+    f.write('  </Project>')
+    f.write("\n\n")
+
+    f.write('<Element>')
+    f.write("\n")
+    f.write('  <ElementID>1</ElementID>')
+    f.write("\n")
+    f.write('  <ElementName>')
+    f.write(str(element_name))
+    f.write('</ElementName>')
+    f.write("\n")
+    f.write('  <ElementTypeStr>wall</ElementTypeStr>')
+    f.write("\n")
+    f.write('  <ElementFilePath>')
+    f.write(str(mydir))
+    f.write('</ElementFilePath>')
+    f.write("\n")
+    f.write('  <ElementCount>1</ElementCount>')
+    f.write("\n")
+    f.write('</Element>')
+    f.write("\n\n")
+
+    f.write('<Beam>')
+    f.write("\n")
+    f.write('  <BeamID>1</BeamID>')
+    f.write("\n")
+    f.write('  <BeamElementID>1</BeamElementID>')
+    f.write("\n")
+    f.write('  <BeamSerial>')
+    f.write(str(int(random.uniform(1, 1000000))))
+    f.write('</BeamSerial>')
+    f.write("\n")
+    f.write('  <BeamName>')
+    f.write('!!!!!!!!!')  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
+    f.write('</BeamName>')
+    f.write("\n")
+    f.write('  <BeamMaterialGrade>')
+    f.write(str(material))
+    f.write('</BeamMaterialGrade>')
+    f.write("\n")
+    f.write('  <BeamRotation>90</BeamRotation>')
+    f.write("\n")
+
+    f.write('  <BeamXStart>0</BeamXStart>')
+    f.write("\n")
+    f.write('  <BeamYStart>0</BeamYStart>')
+    f.write("\n")
+    f.write('  <BeamZStart>0</BeamZStart>')
+    f.write("\n")
+
+    f.write('  <BeamXEnd>')
+    f.write(str(lenght))
+    f.write('</BeamXEnd>')
+    f.write("\n")
+    f.write('  <BeamYEnd>0</BeamYEnd>')
+    f.write("\n")
+    f.write('  <BeamZEnd>0</BeamZEnd>')
+    f.write("\n")
+
+    f.write('  <BeamLength>')
+    f.write(str(lenght))
+    f.write('</BeamLength>')
+    f.write("\n")
+    f.write('</Beam>')
+    f.write("\n\n")
+
+    f.write('<Detail>')
+    f.write("\n")
+    f.write('  <DetailID>')
+    f.write(str(detail_id))
+    detail_id = detail_id + 1
+    f.write('</DetailID>')
+    f.write("\n")
+    f.write('  <DetailBeamID>')
+    f.write(str(detailBeam_id))
+    f.write('</DetailBeamID>')
+    f.write("\n")
+    f.write('  <DetailType>Front</DetailType>')
+    f.write("\n")
+    f.write('  <DetailName>Straight</DetailName>')
+    f.write("\n")
+    f.write('  <DetailXPos>0</DetailXPos>')
+    f.write("\n")
+    f.write('  <DetailYPos>0</DetailYPos>')
+    f.write("\n")
+    f.write('  <DetailProfileFace>Web</DetailProfileFace>')
+    f.write("\n")
+    f.write('  </Detail>')
+    f.write("\n\n")
+
+    f.write('<Detail>')
+    f.write("\n")
+    f.write('  <DetailID>')
+    f.write(str(detail_id))
+    detail_id = detail_id + 1
+    f.write('</DetailID>')
+    f.write("\n")
+    f.write('  <DetailBeamID>')
+    f.write(str(detailBeam_id))
+    f.write('</DetailBeamID>')
+    f.write("\n")
+    f.write('  <DetailType>End</DetailType>')
+    f.write("\n")
+    f.write('  <DetailName>Straight</DetailName>')
+    f.write("\n")
+    f.write('  <DetailXPos>0</DetailXPos>')
+    f.write("\n")
+    f.write('  <DetailYPos>0</DetailYPos>')
+    f.write("\n")
+    f.write('  <DetailProfileFace>Web</DetailProfileFace>')
+    f.write("\n")
+    f.write('  </Detail>')
+    f.write("\n\n")
+
+    f.write('</BatchDataSet>')
+    f.close()
+
+
+def runCheck():
+    if len(form.Length.text()) > 0 and len(form.Project_name.text()) > 0 and len(form.Element_name.text()) > 0:
+        form.pushButton_2.setDisabled(False)
+    else:
+        form.pushButton_2.setDisabled(True)
 #--------------------------------------------------
 form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
+form.pushButton_2.setDisabled(True)
+form.Amount.setDisabled(True)
 form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
+form.Length.textChanged.connect(runCheck)
+form.Project_name.textChanged.connect(runCheck)
+form.Element_name.textChanged.connect(runCheck)
+form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 #---------------------------------------------------
 print(current_machine_id)
 
