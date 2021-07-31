@@ -251,7 +251,8 @@ def updater():
 
 def download_updater():
      download_folder = 'D:'
-     download_folder=select_download_folder()
+     if form6.pushButton_2.clicked==True:
+         download_folder=select_download_folder()
      f=open(download_folder + '\construct_setup.exe', 'wb')
      url="http://ggfhhrtrh.niklowkick.beget.tech/construct_setup.exe"
      response = requests.get(url, stream=True)  # делаем запрос
@@ -472,7 +473,7 @@ form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 form6.pushButton.clicked.connect(download_updater)
-form6.pushButton_2.clicked.connect(select_download_folder)
+#form6.pushButton_2.clicked.connect(select_download_folder)
 #---------------------------------------------------
 print(current_machine_id)
 

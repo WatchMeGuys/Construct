@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Construct"
-#define MyAppVersion "21.07.25"
+#define MyAppVersion "21.07.31"
 #define MyAppPublisher "ООО Конструктив"
 #define MyAppURL "http://ggfhhrtrh.niklowkick.beget.tech/"
 #define MyAppExeName "construct.exe"

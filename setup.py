@@ -1,7 +1,8 @@
 from cx_Freeze import setup, Executable
 
 executables = [Executable('main.py', target_name='construct.exe', base='Win32GUI', icon='construct.ico')]
-include_files = ['LimboQT.ui', 'supreme_access.ui', 'supreme_window.ui', 'username_change_window.ui', 'update.ui']
+include_files = ['LimboQT.ui', 'supreme_access.ui', 'supreme_window.ui', 'username_change_window.ui',
+                 'update.ui', 'profile_images/', 'projects/']
 options = {
     'build_exe': {
         'include_msvcr': True,
