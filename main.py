@@ -1,23 +1,15 @@
 import os, sys
 import hashlib
 import subprocess
-<<<<<<< HEAD
 import requests
-=======
 from datetime import datetime
 import random
->>>>>>> bf2b3606f04922dbb8432fe18b08241c211f0e46
 
 from mysql.connector import connect, Error
 from PyQt5 import uic, QtGui
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
-<<<<<<< HEAD
-from tqdm import tqdm
-=======
 from PyQt5.QtGui import QDoubleValidator
-
->>>>>>> bf2b3606f04922dbb8432fe18b08241c211f0e46
 
 
 # pyinstaller -F -w main.py создание ярлыка
@@ -247,7 +239,6 @@ def checkSupremeAccess():
         except Error as e:
             print(e)
 
-<<<<<<< HEAD
 #for auto-update
 def updater():
     window6.show()
@@ -295,7 +286,6 @@ def profileShow(self):
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
     elif self == 'TPS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
-=======
 
 # --------------------- encrypt ---------------------
 def encrypt():
@@ -308,7 +298,7 @@ def encrypt():
     detailBeam_id = int(1)
     fileName = str(form.Project_name.text()+' - '+form.Element_name.text())
     
-    f = open(fileName+'.xml', 'w')
+    f = open('projects/'+ fileName+'.xml', 'w')
     f.write('<?xml version="1.0" encoding="utf-8"?>')
     f.write("\n\n")
     f.write('<BatchDataSet>')
@@ -465,7 +455,6 @@ def runCheck():
         form.pushButton_2.setDisabled(False)
     else:
         form.pushButton_2.setDisabled(True)
->>>>>>> bf2b3606f04922dbb8432fe18b08241c211f0e46
 #--------------------------------------------------
 form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
@@ -475,18 +464,15 @@ form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
 form.actionUpdate_App.triggered.connect(updater)
-form3.pushButton.clicked.connect(checkSupremeAccess)
-form5.pushButton.clicked.connect(uname_change)
-<<<<<<< HEAD
-form6.pushButton.clicked.connect(download_updater)
-form6.pushButton_2.clicked.connect(select_download_folder)
 form.comboBox.currentTextChanged.connect(profileShow)
-=======
 form.Length.textChanged.connect(runCheck)
 form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
 form.Length.setValidator(QDoubleValidator(0, 2000, 2))
->>>>>>> bf2b3606f04922dbb8432fe18b08241c211f0e46
+form3.pushButton.clicked.connect(checkSupremeAccess)
+form5.pushButton.clicked.connect(uname_change)
+form6.pushButton.clicked.connect(download_updater)
+form6.pushButton_2.clicked.connect(select_download_folder)
 #---------------------------------------------------
 print(current_machine_id)
 
