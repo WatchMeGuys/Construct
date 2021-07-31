@@ -2,9 +2,9 @@
 
 <BatchDataSet>
 <Meta>
-  <ModificationTime>2021-07-21 18:50:42.970903</ModificationTime>
+  <ModificationTime>2021-07-30 20:03:32.149104</ModificationTime>
   <CreatedBy />
-  <ModificationTime>2021-07-21 18:50:42.970903</ModificationTime>
+  <ModificationTime>2021-07-30 20:03:32.149104</ModificationTime>
   <ModificatedBy>not modified</ModificatedBy>
   <Version>1.0</Version>
   <CadVersion>20.0 Service Release 5</CadVersion>
@@ -19,14 +19,14 @@
   <ElementID>1</ElementID>
   <ElementName>QWE</ElementName>
   <ElementTypeStr>wall</ElementTypeStr>
-  <ElementFilePath>F:/Education/University/GitHub/Construct/NewVirEnv</ElementFilePath>
+  <ElementFilePath></ElementFilePath>
   <ElementCount>1</ElementCount>
 </Element>
 
 <Beam>
   <BeamID>1</BeamID>
   <BeamElementID>1</BeamElementID>
-  <BeamSerial>224165</BeamSerial>
+  <BeamSerial>630774</BeamSerial>
   <BeamName>!!!!!!!!!</BeamName>
   <BeamMaterialGrade>C375</BeamMaterialGrade>
   <BeamRotation>90</BeamRotation>

@@ -1,6 +1,9 @@
 from datetime import datetime
+
+import main
 from main import mydir #,project_name, element_name, lenght
 import random
+
 
 current_time = datetime.now()
 project_name = str('project') ### import from main
@@ -10,6 +13,7 @@ lenght = int(1000) #### import from main
 detail_id = int(1)
 detailBeam_id = int(1)
 
+print(main.current_machine_id)
 
 f = open('profile.xml', 'w')
 f.write('<?xml version="1.0" encoding="utf-8"?>')
