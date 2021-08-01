@@ -1,7 +1,7 @@
 import os, sys
 import hashlib
 import subprocess
-# import requests
+import requests
 from datetime import datetime
 import random
 
