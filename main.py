@@ -1,7 +1,7 @@
 import os, sys
 import hashlib
 import subprocess
-import requests
+# import requests
 from datetime import datetime
 import random
 
@@ -18,7 +18,6 @@ def write_to_folder(directory='', ):
     pass
 
 
-
 print(os.path.realpath(__file__))
 dirname, filename = os.path.split(os.path.realpath(__file__))
 print(dirname)
@@ -32,17 +31,17 @@ Form6, Window6 = uic.loadUiType((dirname + "\\update.ui"))
 app = QApplication([])
 window = Window()
 # window2 = Window2()
-window3=Window3()
-window4=Window4()
-window5=Window5()
-window6=Window6()
+window3 = Window3()
+window4 = Window4()
+window5 = Window5()
+window6 = Window6()
 
 form = Form()
 # form2 = Form2()
-form3=Form3()
-form4=Form4()
-form5=Form5()
-form6=Form6()
+form3 = Form3()
+form4 = Form4()
+form5 = Form5()
+form6 = Form6()
 form.setupUi(window)
 # form2.setupUi(window2)
 form3.setupUi(window3)
@@ -52,10 +51,12 @@ form6.setupUi(window6)
 
 window.show()
 mydir = ""
-#-------------------------------------------
+# -------------------------------------------
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
-lol="lol"
+lol = "lol"
+
+
 def uname_change():
     name = form5.textEdit.toPlainText()
     req = "UPDATE users_table SET name=" + "\"" + name + "\"" + "WHERE unique_id=" + "\"" + current_machine_id + "\""
@@ -63,14 +64,18 @@ def uname_change():
     show_username()
     window5.close()
 
+
 def show_uname_change():
     window5.show()
+
 
 def getAccess():
     window3.show()
 
+
 def showSupreme():
     window4.show()
+
 
 def on_click_select_folder():
     global mydir
@@ -79,11 +84,9 @@ def on_click_select_folder():
     print(mydir)
     form.label_4.setText(mydir)
 
-def click_run():
-    encrypt()
 
 def queryToDb(my_query):
-    res="lol"
+    res = "lol"
     try:
         with connect(
                 host="niklowkick.beget.tech",
@@ -92,17 +95,18 @@ def queryToDb(my_query):
                 database="niklowkick_users",
                 buffered=True
         ) as connection:
-            query =  my_query
+            query = my_query
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 connection.commit()
                 res = cursor.fetchall()
     except Error as e:
         print(e)
-    res=str(res)
-    return(res)
+    res = str(res)
+    return (res)
 
-def insert_query(request,data):
+
+def insert_query(request, data):
     res = "lol"
     try:
         with connect(
@@ -114,7 +118,7 @@ def insert_query(request,data):
         ) as connection:
             query = request
             with connection.cursor() as cursor:
-                cursor.executemany(query,data)
+                cursor.executemany(query, data)
                 connection.commit()
                 res = cursor.fetchall()
     except Error as e:
@@ -122,24 +126,26 @@ def insert_query(request,data):
     res = str(res)
     return (res)
 
+
 def show_username():
     req = "SElECT name FROM users_table WHERE unique_id=" + "\"" + str(current_machine_id) + "\""
     username = queryToDb(req)
     resp = username[3:-4]
     form.user_name.setText("Hello, " + resp + "!")
 
+
 def at_start_license():
-#----------------------------------------------------------------------
-    if is_user_exits!="None":
+    # ----------------------------------------------------------------------
+    if is_user_exits != "None":
         print("user is avaliable")
         show_username()
     else:
         print("user is not avaliable")
         form.user_name.setText("Hello, stranger..")
-        secret_key=hashlib.md5(current_machine_id.encode())
-        secret_key=secret_key.hexdigest()
+        secret_key = hashlib.md5(current_machine_id.encode())
+        secret_key = secret_key.hexdigest()
         print(secret_key)
-        req_non_exist="""
+        req_non_exist = """
         INSERT INTO users_table
         (unique_id, is_main_access, is_sub_access, license_key, name)
         VALUES( %s, %s, %s, %s, %s )
@@ -147,7 +153,7 @@ def at_start_license():
         user_records = [
             (current_machine_id, "1", "0", secret_key, "user"),
         ]
-        insert_query(req_non_exist,user_records)
+        insert_query(req_non_exist, user_records)
         show_username()
 
     try:
@@ -163,21 +169,22 @@ def at_start_license():
             with connection.cursor() as cursor:
                 cursor.execute(query_is_sub)
                 connection.commit()
-                is_active=""
+                is_active = ""
                 is_active = cursor.fetchall()
     except Error as e:
         print(e)
-#----------------------------------------------------
+    # ----------------------------------------------------
     is_active_str = str(is_active)
     is_active_str = is_active_str[2:-3]
     print(is_active_str)
-#---------------------------------------------------------------
-    if is_active_str=='1':
+    # ---------------------------------------------------------------
+    if is_active_str == '1':
         form.way_to_supreme_btn.setEnabled(True)
         form.label_is_premium.setText("PREMIUM")
-    elif is_active_str=='0':
+    elif is_active_str == '0':
         form.way_to_supreme_btn.setEnabled(False)
         form.label_is_premium.setText("DEMO")
+
 
 def is_user_exist():
     try:
@@ -194,7 +201,8 @@ def is_user_exist():
                 result = cursor.fetchone()
     except Error as e:
         print(e)
-    return(result)
+    return (result)
+
 
 def get_license_key():
     try:
@@ -215,6 +223,7 @@ def get_license_key():
         print(e)
     return (result)
 
+
 def checkSupremeAccess():
     license_key = form3.textEdit.toPlainText()
     print(license_key)
@@ -231,62 +240,76 @@ def checkSupremeAccess():
                     database="niklowkick_users",
                     buffered=True
             ) as connection:
-                query_update = 'UPDATE users_table SET is_sub_access = "1" WHERE unique_id =' +"\"" + str(
-                    current_machine_id)+ "\""
+                query_update = 'UPDATE users_table SET is_sub_access = "1" WHERE unique_id =' + "\"" + str(
+                    current_machine_id) + "\""
                 with connection.cursor() as cursor:
                     cursor.execute(query_update)
                     connection.commit()
         except Error as e:
             print(e)
 
-#for auto-update
+
+# for auto-update
 def updater():
     window6.show()
     with open("version.txt", "r") as f:
         vers = f.read()
-    form6.label.setText("Your Construct version is "+vers)
-    vers=vers.replace(".", "")
+    form6.label.setText("Your Construct version is " + vers)
+    vers = vers.replace(".", "")
     print("Your Construct version is " + vers)
 
 
 def download_updater():
-     download_folder = 'D:'
-     if form6.pushButton_2.clicked==True:
-         download_folder=select_download_folder()
-     f=open(download_folder + '\construct_setup.exe', 'wb')
-     url="http://ggfhhrtrh.niklowkick.beget.tech/construct_setup.exe"
-     response = requests.get(url, stream=True)  # делаем запрос
-     f.write(response.content)
-     f.close()
-    # total_size_in_bytes = int(response.headers.get('content-length', 0))
-    # block_size = 1024  # 1 Kibibyte
-    # progress_bar = tqdm(total=total_size_in_bytes, unit='iB', unit_scale=True)
-    #
-    # with open(download_folder + '\construct_setup.exe', 'wb') as file:
-    #     for data in response.iter_content(block_size):
-    #         progress_bar.update(len(data))
-    # file.write(data)
-    # progress_bar.close()
-    # if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
-    #     print("ERROR, something went wrong")
-    # form6.label_2.setText("Downloaded! Please close and reinstall the app.")
-    # form6.progressBar.setValue(int(str(progress_bar)[:3]))
+    download_folder = 'D:'
+    if form6.pushButton_2.clicked == True:
+        download_folder = select_download_folder()
+    f = open(download_folder + '\construct_setup.exe', 'wb')
+    url = "http://ggfhhrtrh.niklowkick.beget.tech/construct_setup.exe"
+    response = requests.get(url, stream=True)  # делаем запрос
+    f.write(response.content)
+    f.close()
+
+
+# total_size_in_bytes = int(response.headers.get('content-length', 0))
+# block_size = 1024  # 1 Kibibyte
+# progress_bar = tqdm(total=total_size_in_bytes, unit='iB', unit_scale=True)
+#
+# with open(download_folder + '\construct_setup.exe', 'wb') as file:
+#     for data in response.iter_content(block_size):
+#         progress_bar.update(len(data))
+# file.write(data)
+# progress_bar.close()
+# if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
+#     print("ERROR, something went wrong")
+# form6.label_2.setText("Downloaded! Please close and reinstall the app.")
+# form6.progressBar.setValue(int(str(progress_bar)[:3]))
 
 def select_download_folder():
     dialog = QFileDialog()
     download_folder = dialog.getExistingDirectory(window, 'Select directory')
     form6.label_2.setText(download_folder)
-    return(str(download_folder))
+    return (str(download_folder))
+
 
 def profileShow(self):
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
+        global encodedProfile
+        encodedProfile = str('SA-152-15-U-OUT')
     elif self == 'TPN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
+        encodedProfile = str('SA-152-15-TU-OUT')
     elif self == 'PS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
+        encodedProfile = str('SA-152-15-C-IN')
     elif self == 'TPS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
+        encodedProfile = str('SA-152-15-TC-IN')
+
+
+def click_run():
+    encrypt()
+
 
 # --------------------- encrypt ---------------------
 def encrypt():
@@ -297,9 +320,10 @@ def encrypt():
     lenght = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
-    fileName = str(form.Project_name.text()+' - '+form.Element_name.text())
-    
-    f = open('projects/'+ fileName+'.xml', 'w')
+    fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text())
+    # encodedProfile = str('')
+
+    f = open(mydir + '/' + fileName + '.xml', 'w')
     f.write('<?xml version="1.0" encoding="utf-8"?>')
     f.write("\n\n")
     f.write('<BatchDataSet>')
@@ -366,7 +390,8 @@ def encrypt():
     f.write('</BeamSerial>')
     f.write("\n")
     f.write('  <BeamName>')
-    f.write('!!!!!!!!!')  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
+    f.write(
+        str(encodedProfile))  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
     f.write('  <BeamMaterialGrade>')
@@ -456,7 +481,9 @@ def runCheck():
         form.pushButton_2.setDisabled(False)
     else:
         form.pushButton_2.setDisabled(True)
-#--------------------------------------------------
+
+
+# --------------------------------------------------
 form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
 form.pushButton_2.setDisabled(True)
@@ -473,14 +500,14 @@ form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 form6.pushButton.clicked.connect(download_updater)
-#form6.pushButton_2.clicked.connect(select_download_folder)
-#---------------------------------------------------
+# form6.pushButton_2.clicked.connect(select_download_folder)
+# ---------------------------------------------------
 print(current_machine_id)
 
-is_user_exits = str(is_user_exist()) #FIRSTLY need to know is user exists
+is_user_exits = str(is_user_exist())  # FIRSTLY need to know is user exists
 at_start_license()
 
-#result from mysql to str
+# result from mysql to str
 true_license_key = str(get_license_key())
 true_license_key = true_license_key[3:-4]
 print(true_license_key)
