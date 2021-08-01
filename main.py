@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QDoubleValidator
 
-global encodedProfile
+encodedProfile=""
 # pyinstaller -F -w main.py создание ярлыка
 
 def write_to_folder(directory='', ):
@@ -275,6 +275,7 @@ def click_run():
 
 # --------------------- encrypt ---------------------
 def encrypt():
+    global  encodedProfile
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
@@ -352,8 +353,7 @@ def encrypt():
     f.write('</BeamSerial>')
     f.write("\n")
     f.write('  <BeamName>')
-    f.write(
-        str(encodedProfile))  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
+    f.write(str(encodedProfile))  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
     f.write('  <BeamMaterialGrade>')
