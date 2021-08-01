@@ -249,48 +249,6 @@ def checkSupremeAccess():
             print(e)
 
 
-# for auto-update
-def updater():
-    window6.show()
-    with open("version.txt", "r") as f:
-        vers = f.read()
-    form6.label.setText("Your Construct version is " + vers)
-    vers = vers.replace(".", "")
-    print("Your Construct version is " + vers)
-
-
-def download_updater():
-    download_folder = 'D:'
-    if form6.pushButton_2.clicked == True:
-        download_folder = select_download_folder()
-    f = open(download_folder + '\construct_setup.exe', 'wb')
-    url = "http://ggfhhrtrh.niklowkick.beget.tech/construct_setup.exe"
-    response = requests.get(url, stream=True)  # делаем запрос
-    f.write(response.content)
-    f.close()
-
-
-# total_size_in_bytes = int(response.headers.get('content-length', 0))
-# block_size = 1024  # 1 Kibibyte
-# progress_bar = tqdm(total=total_size_in_bytes, unit='iB', unit_scale=True)
-#
-# with open(download_folder + '\construct_setup.exe', 'wb') as file:
-#     for data in response.iter_content(block_size):
-#         progress_bar.update(len(data))
-# file.write(data)
-# progress_bar.close()
-# if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
-#     print("ERROR, something went wrong")
-# form6.label_2.setText("Downloaded! Please close and reinstall the app.")
-# form6.progressBar.setValue(int(str(progress_bar)[:3]))
-
-def select_download_folder():
-    dialog = QFileDialog()
-    download_folder = dialog.getExistingDirectory(window, 'Select directory')
-    form6.label_2.setText(download_folder)
-    return (str(download_folder))
-
-
 def profileShow(self):
     global encodedProfile
     if self == 'PN-152-1,5':
@@ -483,6 +441,29 @@ def runCheck():
         form.pushButton_2.setDisabled(True)
 
 
+class Updater:
+    dFolder="D:"
+
+    def select_download_folder(self):
+        dialog = QFileDialog()
+        download_folder = dialog.getExistingDirectory(window, 'Select directory')
+        form6.label_2.setText(download_folder)
+        Updater.dFolder = download_folder
+
+    def updater(self):
+        window6.show()
+        with open("version.txt", "r") as f:
+            vers = f.read()
+        form6.label.setText("Your Construct version is " + vers)
+        vers = vers.replace(".", "")
+        print("Your Construct version is " + vers)
+
+    def download_updater(self):
+        f = open(Updater.dFolder + '\construct_setup.exe', 'wb')
+        url = "http://ggfhhrtrh.niklowkick.beget.tech/construct_setup.exe"
+        response = requests.get(url, stream=True)  # делаем запрос
+        f.write(response.content)
+        f.close()
 # --------------------------------------------------
 form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
@@ -491,7 +472,7 @@ form.Amount.setDisabled(True)
 form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
-form.actionUpdate_App.triggered.connect(updater)
+form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)
 form.Project_name.textChanged.connect(runCheck)
@@ -499,8 +480,8 @@ form.Element_name.textChanged.connect(runCheck)
 form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
-form6.pushButton.clicked.connect(download_updater)
-# form6.pushButton_2.clicked.connect(select_download_folder)
+form6.pushButton.clicked.connect(Updater.download_updater)
+form6.pushButton_2.clicked.connect(Updater.select_download_folder)
 # ---------------------------------------------------
 print(current_machine_id)
 
