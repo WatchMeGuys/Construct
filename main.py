@@ -1,7 +1,7 @@
 import os, sys
 import hashlib
 import subprocess
-# import requests
+import requests
 from datetime import datetime
 import random
 
@@ -292,6 +292,7 @@ def select_download_folder():
 
 
 def profileShow(self):
+    global encodedProfile
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
