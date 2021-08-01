@@ -292,9 +292,9 @@ def select_download_folder():
 
 
 def profileShow(self):
+    global encodedProfile
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
-        global encodedProfile
         encodedProfile = str('SA-152-15-U-OUT')
     elif self == 'TPN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
