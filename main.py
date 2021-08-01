@@ -3,7 +3,7 @@ import hashlib
 import subprocess
 
 import PyQt5
-import requests
+#import requests
 from datetime import datetime
 import random
 
@@ -29,6 +29,7 @@ Form3, Window3 = uic.loadUiType((dirname + "\\supreme_access.ui"))
 Form4, Window4 = uic.loadUiType((dirname + "\\supreme_window.ui"))
 Form5, Window5 = uic.loadUiType((dirname + "\\username_change_window.ui"))
 Form6, Window6 = uic.loadUiType((dirname + "\\update.ui"))
+Form7, Window7 = uic.loadUiType((dirname + "\\InfoWindow.ui"))
 
 app = QApplication([])
 window = Window()
@@ -37,6 +38,7 @@ window3 = Window3()
 window4 = Window4()
 window5 = Window5()
 window6 = Window6()
+window7 = Window7()
 
 form = Form()
 # form2 = Form2()
@@ -44,15 +46,17 @@ form3 = Form3()
 form4 = Form4()
 form5 = Form5()
 form6 = Form6()
+form7 = Form7()
 form.setupUi(window)
 # form2.setupUi(window2)
 form3.setupUi(window3)
 form4.setupUi(window4)
 form5.setupUi(window5)
 form6.setupUi(window6)
+form7.setupUi(window7)
 
 window.show()
-mydir = ""
+#mydir = ""
 # -------------------------------------------
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
@@ -71,6 +75,10 @@ def show_uname_change():
     window5.show()
 
 
+def info():
+    window7.show()
+
+
 def getAccess():
     window3.show()
 
@@ -79,12 +87,12 @@ def showSupreme():
     window4.show()
 
 
-def on_click_select_folder():
-    global mydir
-    dialog = QFileDialog()
-    mydir = dialog.getExistingDirectory(window, 'Select directory')
-    print(mydir)
-    form.label_4.setText(mydir)
+#def on_click_select_folder():
+#    global mydir
+#    dialog = QFileDialog()
+#    mydir = dialog.getExistingDirectory(window, 'Select directory')
+#    print(mydir)
+#    form.label_4.setText(mydir)
 
 
 def queryToDb(my_query):
@@ -275,7 +283,7 @@ def click_run():
 
 # --------------------- encrypt ---------------------
 def encrypt():
-    global  encodedProfile
+    global encodedProfile
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
@@ -284,9 +292,10 @@ def encrypt():
     detail_id = int(1)
     detailBeam_id = int(1)
     fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text())
+    text = "\:"
     # encodedProfile = str('')
 
-    f = open(mydir + '/' + fileName + '.xml', 'w')
+    f = open('C:\ConstructFiles' + text[0] + fileName + '.xml', 'w')
     f.write('<?xml version="1.0" encoding="utf-8"?>')
     f.write("\n\n")
     f.write('<BatchDataSet>')
@@ -478,13 +487,14 @@ def lengthCheck():
 
 # --------------------------------------------------
 #form.comboBox.indexChanged.connect(profileBoxCkeck)
-form.pushButton.clicked.connect(on_click_select_folder)
+#form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
 form.pushButton_2.setDisabled(True)
 form.Amount.setDisabled(True)
 form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
+form.ConstructAction.triggered.connect(info)
 form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)
