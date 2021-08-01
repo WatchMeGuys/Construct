@@ -1,12 +1,14 @@
 import os, sys
 import hashlib
 import subprocess
+
+import PyQt5
 import requests
 from datetime import datetime
 import random
 
 from mysql.connector import connect, Error
-from PyQt5 import uic, QtGui
+from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QDoubleValidator
@@ -447,14 +449,16 @@ class Updater:
     dFolder="D:"
 
     def select_download_folder(self):
+        window6.hide()
         dialog = QFileDialog()
         download_folder = dialog.getExistingDirectory(window, 'Select directory')
         form6.label_2.setText(download_folder)
         Updater.dFolder = download_folder
+        window6.show() # to prevent hiding behind main window, after calling qfile dialog
 
     def updater(self):
         window6.show()
-        with open("version.txt", "r") as f:
+        with open("TextFiles/version.txt", "r") as f:
             vers = f.read()
         form6.label.setText("Your Construct version is " + vers)
         vers = vers.replace(".", "")
@@ -466,6 +470,8 @@ class Updater:
         response = requests.get(url, stream=True)  # делаем запрос
         f.write(response.content)
         f.close()
+
+
 def lengthCheck():
     form.sizeLength.setText(str(form.Length.text()))
 
