@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QDoubleValidator
 
-
+global encodedProfile
 # pyinstaller -F -w main.py создание ярлыка
 
 def write_to_folder(directory='', ):
@@ -294,18 +294,20 @@ def select_download_folder():
 def profileShow(self):
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
-        global encodedProfile
         encodedProfile = str('SA-152-15-U-OUT')
+        form.ProfileLabel.setText(str(self))
     elif self == 'TPN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
         encodedProfile = str('SA-152-15-TU-OUT')
+        form.ProfileLabel.setText(str(self))
     elif self == 'PS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
         encodedProfile = str('SA-152-15-C-IN')
+        form.ProfileLabel.setText(str(self))
     elif self == 'TPS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
-
+        form.ProfileLabel.setText(str(self))
 
 def click_run():
     encrypt()
@@ -483,7 +485,12 @@ def runCheck():
         form.pushButton_2.setDisabled(True)
 
 
+def lengthCheck():
+    form.sizeLength.setText(str(form.Length.text()))
+
+
 # --------------------------------------------------
+#form.comboBox.indexChanged.connect(profileBoxCkeck)
 form.pushButton.clicked.connect(on_click_select_folder)
 form.pushButton_2.clicked.connect(click_run)
 form.pushButton_2.setDisabled(True)
@@ -494,8 +501,9 @@ form.actionChange_username.triggered.connect(show_uname_change)
 form.actionUpdate_App.triggered.connect(updater)
 form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)
+form.Length.textChanged.connect(lengthCheck)
 form.Project_name.textChanged.connect(runCheck)
-form.Element_name.textChanged.connect(runCheck)
+form.Element_name.textChanged.connect(lengthCheck)
 form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
