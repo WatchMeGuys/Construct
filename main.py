@@ -3,7 +3,7 @@ import hashlib
 import subprocess
 
 import PyQt5
-#import requests
+import requests #это нужно, хватит удалять!!!
 from datetime import datetime
 import random
 
@@ -60,8 +60,7 @@ window.show()
 # -------------------------------------------
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
-lol = "lol"
-
+encodedProfile=""
 
 def uname_change():
     name = form5.textEdit.toPlainText()
@@ -284,6 +283,7 @@ def click_run():
 
 # --------------------- encrypt ---------------------
 def encrypt():
+    check_dir = os.path.exists("C:/ConstructFiles/")
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
@@ -294,8 +294,10 @@ def encrypt():
     fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text())
     text = "\:"
     # encodedProfile = str('')
+    if check_dir==False:
+        os.mkdir("C:/ConstructFiles/")
 
-    f = open('ConstructFiles/' + fileName+'.xml', 'w')
+    f = open('C:/ConstructFiles/' + fileName+'.xml', 'w')
     f.write('<?xml version="1.0" encoding="utf-8"?>')
     f.write("\n\n")
     f.write('<BatchDataSet>')
@@ -343,7 +345,7 @@ def encrypt():
     f.write('  <ElementTypeStr>wall</ElementTypeStr>')
     f.write("\n")
     f.write('  <ElementFilePath>')
-    f.write(str(mydir))
+    f.write(str('C:\ConstructFiles'))
     f.write('</ElementFilePath>')
     f.write("\n")
     f.write('  <ElementCount>1</ElementCount>')
