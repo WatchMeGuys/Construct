@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtGui import QDoubleValidator
 
-encodedProfile=""
+
 # pyinstaller -F -w main.py создание ярлыка
 
 def write_to_folder(directory='', ):
@@ -76,7 +76,7 @@ def show_uname_change():
 
 
 def info():
-    window7.show()
+    window7.show() #Window "О программе"
 
 
 def getAccess():
@@ -260,6 +260,7 @@ def checkSupremeAccess():
 
 
 def profileShow(self):
+    global encodedProfile
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
@@ -283,19 +284,18 @@ def click_run():
 
 # --------------------- encrypt ---------------------
 def encrypt():
-    global encodedProfile
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
     material = str('C375')  #### material could change, constant value
-    lenght = str(form.Length.text())
+    profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
     fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text())
     text = "\:"
     # encodedProfile = str('')
 
-    f = open('C:\ConstructFiles' + text[0] + fileName + '.xml', 'w')
+    f = open('ConstructFiles/' + fileName+'.xml', 'w')
     f.write('<?xml version="1.0" encoding="utf-8"?>')
     f.write("\n\n")
     f.write('<BatchDataSet>')
@@ -362,7 +362,7 @@ def encrypt():
     f.write('</BeamSerial>')
     f.write("\n")
     f.write('  <BeamName>')
-    f.write(str(encodedProfile))  # beam name is the name of profile that we use to encide (ТС-152-1,5 == SA-152-15-C-IN)
+    f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
     f.write('  <BeamMaterialGrade>')
@@ -380,7 +380,7 @@ def encrypt():
     f.write("\n")
 
     f.write('  <BeamXEnd>')
-    f.write(str(lenght))
+    f.write(str(profileLength))
     f.write('</BeamXEnd>')
     f.write("\n")
     f.write('  <BeamYEnd>0</BeamYEnd>')
@@ -389,7 +389,7 @@ def encrypt():
     f.write("\n")
 
     f.write('  <BeamLength>')
-    f.write(str(lenght))
+    f.write(str(profileLength))
     f.write('</BeamLength>')
     f.write("\n")
     f.write('</Beam>')
@@ -500,7 +500,7 @@ form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)
 form.Length.textChanged.connect(lengthCheck)
 form.Project_name.textChanged.connect(runCheck)
-form.Element_name.textChanged.connect(lengthCheck)
+form.Element_name.textChanged.connect(runCheck)
 form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
