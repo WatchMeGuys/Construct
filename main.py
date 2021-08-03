@@ -291,7 +291,7 @@ def encrypt():
     profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
-    fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text())
+    fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text() + ' - ' + str(form.Length.text())+ 'mm')
     text = "\:"
     # encodedProfile = str('')
     if check_dir==False:
