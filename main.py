@@ -1,6 +1,7 @@
 ﻿import os, sys
 import hashlib
 import subprocess
+import openpyxl
 
 import PyQt5
 import requests #это нужно, хватит удалять!!!
@@ -61,7 +62,7 @@ window.show()
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
 encodedProfile=""
-
+profileRecord = []
 def uname_change():
     name = form5.textEdit.toPlainText()
     req = "UPDATE users_table SET name=" + "\"" + name + "\"" + "WHERE unique_id=" + "\"" + current_machine_id + "\""
@@ -276,9 +277,12 @@ def profileShow(self):
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
         form.ProfileLabel.setText(str(self))
+    profileRecord.append(encodedProfile)
+    print(profileRecord)
 
 def click_run():
     encrypt()
+    #profileRecord()
 
 
 # --------------------- encrypt ---------------------
@@ -287,7 +291,7 @@ def encrypt():
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
-    material = str('C375')  #### material could change, constant value
+    material = str('08пс')  #### material could change, constant value
     profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
@@ -449,6 +453,43 @@ def encrypt():
     f.close()
 
 
+#def profileRecord():
+
+    #lengthRecord = []
+    #amountRecord = []
+    #weightRecord = []
+    #mainWeightRecord = []
+    #profileRecord.append(encodedProfile)
+    #lengthRecord.append(form.Length.text())
+    #amountRecord.append(form.Amount.text())
+    #print(profileRecord)
+    #print(lengthRecord)
+    #weightRecord.append()
+    #mainWeight = int(form.Amount.text()*(form.Length.text()/1000))
+
+
+def report():
+    book = openpyxl.Workbook()
+
+    sheet = book.active
+    dims = {}
+    sheet['A1'] = 'Профиль'
+    sheet['B1'] = 'Длина, мм'
+    sheet['C1'] = 'Количество'
+    sheet['D1'] = 'Масса, кг на пм'
+    sheet['E1'] = 'Общаяя масса'
+    print(profileRecord)
+
+    for row in sheet.rows:
+        for cell in row:
+            if cell.value:
+                dims[cell.column_letter] = max((dims.get(cell.column_letter, 0), (len(str(cell.value)) + 2)))
+    for col, value in dims.items():
+        sheet.column_dimensions[col].width = value
+
+    book.save("C:/ConstructFiles/Ведомость элементов.xlsx")
+    book.close()
+
 def runCheck():
     if len(form.Length.text()) > 0 and len(form.Project_name.text()) > 0 and len(form.Element_name.text()) > 0:
         form.pushButton_2.setDisabled(False)
@@ -497,6 +538,7 @@ form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
 form.ConstructAction.triggered.connect(info)
+form.actionElementBill.triggered.connect(report)
 form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)

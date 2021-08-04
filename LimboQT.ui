@@ -149,7 +149,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Имя проекта</string>
+     <string>Проект</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="Element_name">
@@ -283,6 +283,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="text">
+     <string>1</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
@@ -411,12 +414,19 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Файл</string>
     </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>Создать отчёт</string>
+     </property>
+     <addaction name="actionElementBill"/>
+    </widget>
+    <addaction name="menu_2"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
-     <string>Settings</string>
+     <string>Настройки</string>
     </property>
     <addaction name="actionChange_username"/>
     <addaction name="separator"/>
@@ -435,12 +445,12 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionChange_username">
    <property name="text">
-    <string>Change username</string>
+    <string>Пользователь</string>
    </property>
   </action>
   <action name="actionUpdate_App">
    <property name="text">
-    <string>Update App</string>
+    <string>Обновить приложение</string>
    </property>
   </action>
   <action name="actionConstruct">
@@ -451,6 +461,11 @@
   <action name="ConstructAction">
    <property name="text">
     <string>Construct</string>
+   </property>
+  </action>
+  <action name="actionElementBill">
+   <property name="text">
+    <string>Ведомость Элементов</string>
    </property>
   </action>
  </widget>
