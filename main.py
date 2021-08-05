@@ -62,7 +62,10 @@ window.show()
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
 encodedProfile=""
+
+lengthRecord = []
 profileRecord = []
+
 def uname_change():
     name = form5.textEdit.toPlainText()
     req = "UPDATE users_table SET name=" + "\"" + name + "\"" + "WHERE unique_id=" + "\"" + current_machine_id + "\""
@@ -261,6 +264,7 @@ def checkSupremeAccess():
 
 def profileShow(self):
     global encodedProfile
+    encodedProfile = str('SA-152-15-U-OUT')
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
@@ -277,12 +281,10 @@ def profileShow(self):
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
         form.ProfileLabel.setText(str(self))
-    profileRecord.append(encodedProfile)
-    print(profileRecord)
 
 def click_run():
     encrypt()
-    #profileRecord()
+    profileRecording()
 
 
 # --------------------- encrypt ---------------------
@@ -378,7 +380,12 @@ def encrypt():
     f.write('</BeamSerial>')
     f.write("\n")
     f.write('  <BeamName>')
-    f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
+    subEncodeProfile = str('SA-152-15-U-OUT')
+    if not encodedProfile:
+        f.write(str(subEncodeProfile))
+    else:
+        f.write(str(subEncodeProfile))
+    #f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
     f.write('  <BeamMaterialGrade>')
@@ -463,9 +470,15 @@ def encrypt():
     f.close()
 
 
-#def profileRecord():
-
-    #lengthRecord = []
+def profileRecording():
+    subProfile = str('SA-152-15-U-OUT')
+    if not encodedProfile:
+        profileRecord.append(subProfile)
+    else:
+        profileRecord.append(encodedProfile)
+    print(profileRecord)
+    lengthRecord.append(form.Length.text())
+    print(lengthRecord)
     #amountRecord = []
     #weightRecord = []
     #mainWeightRecord = []
