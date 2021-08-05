@@ -61,10 +61,14 @@ window.show()
 # -------------------------------------------
 current_machine_id = subprocess.check_output('wmic csproduct get uuid').decode().split('\n')[1].strip()
 # current_machine_id = "1111-2222-0000-4444"
-encodedProfile=""
+encodedProfile = ""
+encodedWeight = float()
 
 lengthRecord = []
 profileRecord = []
+amountRecord = []
+weightRecord = []
+mainWeightRecord = []
 
 def uname_change():
     name = form5.textEdit.toPlainText()
@@ -264,23 +268,28 @@ def checkSupremeAccess():
 
 def profileShow(self):
     global encodedProfile
+    global encodedWeight
     encodedProfile = str('SA-152-15-U-OUT')
     if self == 'PN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
         form.ProfileLabel.setText(str(self))
+        encodedWeight = float(3.13)
     elif self == 'TPN-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
         encodedProfile = str('SA-152-15-TU-OUT')
         form.ProfileLabel.setText(str(self))
+        encodedWeight = float(2.92)
     elif self == 'PS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
         encodedProfile = str('SA-152-15-C-IN')
         form.ProfileLabel.setText(str(self))
+        encodedWeight = float(3.13)
     elif self == 'TPS-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
         form.ProfileLabel.setText(str(self))
+        encodedWeight = float(2.92)
 
 def click_run():
     encrypt()
@@ -476,19 +485,20 @@ def profileRecording():
         profileRecord.append(subProfile)
     else:
         profileRecord.append(encodedProfile)
-    print(profileRecord)
     lengthRecord.append(form.Length.text())
-    print(lengthRecord)
-    #amountRecord = []
-    #weightRecord = []
-    #mainWeightRecord = []
-    #profileRecord.append(encodedProfile)
-    #lengthRecord.append(form.Length.text())
-    #amountRecord.append(form.Amount.text())
-    #print(profileRecord)
-    #print(lengthRecord)
-    #weightRecord.append()
-    #mainWeight = int(form.Amount.text()*(form.Length.text()/1000))
+    amountRecord.append(form.Amount.text())
+    subWeight = float(3.13)
+    if not encodedWeight:
+        weightRecord.append(subWeight)
+    else:
+        weightRecord.append(encodedWeight)
+    if not encodedWeight:
+        mainWeight = float((int(form.Length.text()) * subWeight) / 1000)
+        mainWeightRecord.append(mainWeight)
+    else:
+        mainWeight = float((int(form.Length.text()) * encodedWeight) / 1000)
+        mainWeightRecord.append(mainWeight)
+
 
 
 def report():
@@ -512,8 +522,20 @@ def report():
         sheet[column][1].value = str(length)
         column = int(column + 1)
 
+    column = int(2)
+    for amount in amountRecord:
+        sheet[column][2].value = str(amount)
+        column = int(column + 1)
 
+    column = int(2)
+    for weight in weightRecord:
+        sheet[column][3].value = str(weight)
+        column = int(column + 1)
 
+    column = int(2)
+    for main in mainWeightRecord:
+        sheet[column][4].value = str(main)
+        column = int(column + 1)
 
     for row in sheet.rows:
         for cell in row:
