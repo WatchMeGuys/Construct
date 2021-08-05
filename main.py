@@ -501,7 +501,19 @@ def report():
     sheet['C1'] = 'Количество'
     sheet['D1'] = 'Масса, кг на пм'
     sheet['E1'] = 'Общаяя масса'
-    print(profileRecord)
+
+    column = int(2)
+    for profile in profileRecord:
+        sheet[column][0].value = str(profile)
+        column = int(column + 1)
+
+    column = int(2)
+    for length in lengthRecord:
+        sheet[column][1].value = str(length)
+        column = int(column + 1)
+
+
+
 
     for row in sheet.rows:
         for cell in row:
