@@ -24,7 +24,7 @@ def write_to_folder(directory='', ):
 print(os.path.realpath(__file__))
 dirname, filename = os.path.split(os.path.realpath(__file__))
 print(dirname)
-Form, Window = uic.loadUiType((dirname + "\\LimboQT.ui"))
+Form, Window = uic.loadUiType((dirname + "\\Construct.ui"))
 # Form2, Window2 = uic.loadUiType((dirname + "\\licence_input.ui"))
 Form3, Window3 = uic.loadUiType((dirname + "\\supreme_access.ui"))
 Form4, Window4 = uic.loadUiType((dirname + "\\supreme_window.ui"))
@@ -501,7 +501,7 @@ def profileRecording():
 
 
 
-def report():
+def reportVE():
     book = openpyxl.Workbook()
 
     sheet = book.active
@@ -595,7 +595,7 @@ form.check_access_button.clicked.connect(getAccess)
 form.way_to_supreme_btn.clicked.connect(showSupreme)
 form.actionChange_username.triggered.connect(show_uname_change)
 form.ConstructAction.triggered.connect(info)
-form.actionElementBill.triggered.connect(report)
+form.actionElementBill.triggered.connect(reportVE)
 form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
 form.Length.textChanged.connect(runCheck)
