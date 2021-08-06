@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Construct</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Igor/Desktop/Custom-shape-tool-icon.png</normaloff>C:/Users/Igor/Desktop/Custom-shape-tool-icon.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>861</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Triangular</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="movable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Прямой прокат</string>
+     </attribute>
+     <widget class="QLabel" name="sizeLength">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>310</y>
+        <width>421</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ТУ 243320-001-58854924-2019</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ProfileLabel">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>400</y>
+        <width>531</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>PN-152-1,5</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Длина, мм</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>472</y>
+        <width>851</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Run</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Проект</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Project_name">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>230</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>454</y>
+        <width>861</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Профиль</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Element_name">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>270</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>520</y>
+        <width>851</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Amount">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>190</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Length">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>150</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>270</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Имя элемента</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>110</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>PN-152-1,5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TPN-152-1,5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>PS-152-1,5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>TPS-152-1,5</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Количество</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="photo">
+      <property name="geometry">
+       <rect>
+        <x>321</x>
+        <y>76</y>
+        <width>501</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="pixmap">
+       <pixmap>profile_images/PN-152-1,5.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Операции</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Панели</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_is_premium">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>STKaiti</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>DEMO</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>292</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS</family>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Construct</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>10</y>
+      <width>301</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PROJECTS</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="check_access_button">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Get Access</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="way_to_supreme_btn">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Supreme version</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="user_name">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>30</y>
+      <width>211</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Hello!</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>Создать отчёт</string>
+     </property>
+     <addaction name="actionElementBill"/>
+    </widget>
+    <addaction name="menu_2"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="actionChange_username"/>
+    <addaction name="separator"/>
+    <addaction name="actionUpdate_App"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>О программе</string>
+    </property>
+    <addaction name="ConstructAction"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionChange_username">
+   <property name="text">
+    <string>Пользователь</string>
+   </property>
+  </action>
+  <action name="actionUpdate_App">
+   <property name="text">
+    <string>Обновить приложение</string>
+   </property>
+  </action>
+  <action name="actionConstruct">
+   <property name="text">
+    <string>Construct</string>
+   </property>
+  </action>
+  <action name="ConstructAction">
+   <property name="text">
+    <string>Construct</string>
+   </property>
+  </action>
+  <action name="actionElementBill">
+   <property name="text">
+    <string>Ведомость Элементов</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
