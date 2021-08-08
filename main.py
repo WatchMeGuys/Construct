@@ -302,13 +302,13 @@ def encrypt():
     current_time = datetime.now()
     project_name = str(form.Project_name.text())
     element_name = str(form.Element_name.text())
-    material = str('08пс')  #### material could change, constant value
+    material = str('C375')  #### material could change, constant value
     profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
     fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text() + ' - ' + str(form.Length.text())+ 'mm')
-    text = "\:"
-    # encodedProfile = str('')
+    #text = "\:"
+    #encodedProfile = str('')
     year = '{:02d}'.format(current_time.year)
     month = '{:02d}'.format(current_time.month)
     day = '{:02d}'.format(current_time.day)
