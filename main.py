@@ -16,6 +16,7 @@ from PyQt5.QtGui import QDoubleValidator
 
 
 # pyinstaller -F -w main.py создание ярлыка
+# pyuic5 -x LimboQT.ui -o test.py
 
 def write_to_folder(directory='', ):
     pass
