@@ -12,7 +12,9 @@ from mysql.connector import connect, Error
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
-from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtGui import QDoubleValidator, QCursor, QPixmap
+from PyQt5.QtGui import QPainter, QPen, QBrush
+from PyQt5.QtCore import Qt
 
 
 # pyinstaller -F -w main.py создание ярлыка
@@ -585,7 +587,12 @@ class Updater:
 def lengthCheck():
     form.sizeLength.setText(str(form.Length.text()))
 
-
+#def graphics_view():
+    #painter = QPainter()
+    #painter.setPen(QPen(Qt.black, 5, Qt.SolidLine))
+    #painter.setBrush(QBrush(Qt.red, Qt.SolidPattern))
+    #painter.drawRect(100, 15, 400, 200)
+    #rect = scene.addRect(-100, -100, 200, 200, blackPen, redBrush)
 # --------------------------------------------------
 #form.comboBox.indexChanged.connect(profileBoxCkeck)
 #form.pushButton.clicked.connect(on_click_select_folder)
@@ -608,6 +615,9 @@ form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 form6.pushButton.clicked.connect(Updater.download_updater)
 form6.pushButton_2.clicked.connect(Updater.select_download_folder)
+#form.GV.clicked.connect(graphics_view)
+#Cursor = QCursor(QPixmap('profile_images/classic_grey.png'), 0, 0)
+#form.dashboard.setCursor(Cursor)
 # ---------------------------------------------------
 print(current_machine_id)
 
