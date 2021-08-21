@@ -408,14 +408,17 @@ r14 = array([-50 - width, -width - 50 - 0.4 * width])
 # ----Arrows on size line----#
 arrow11 = array([0.035 * length, 0, 0.035 * length])
 arrow12 = array(
-    [-width - 40 - 0.4 * width + 0.2 * width, -width - 40 - 0.4 * width, -width - 40 - 0.4 * width - 0.2 * width])
+    [-width - 40 - 0.7 * width + 0.2 * width, -width - 40 - 0.4 * width, -width - 40 - 0.1 * width - 0.2 * width])
 arrow21 = array([length - 0.035 * length, length, length - 0.035 * length])
 arrow22 = array(
-    [-width - 40 - 0.4 * width + 0.2 * width, -width - 40 - 0.4 * width, -width - 40 - 0.4 * width - 0.2 * width])
+    [-width - 40 - 0.7 * width + 0.2 * width, -width - 40 - 0.4 * width, -width - 40 - 0.1 * width - 0.2 * width])
 perforation_check()
 
+title(profile)
+xlabel('Длина, мм')
+
 if 'U' in profile:
-    plot(x, y, 'k-', x1, y1, 'k-', r1, r2, 'k-', r11, r12, 'k-', r13, r14, 'k-', arrow11, arrow12, 'k-', arrow21,
+    plot(x, y, 'g-', x1, y1, 'g-', r1, r2, 'k-', r11, r12, 'k-', r13, r14, 'k-', arrow11, arrow12, 'k-', arrow21,
          arrow22, 'k-')
     fill(x, y, 'lightgreen')
     fill(x1, y1, 'lightgreen')
@@ -432,10 +435,10 @@ if 'C-IN' in profile:
     y21 = array([50 + 13, 50 + 13])
     x31 = array([0, length])
     y31 = array([50 + width - 13, 50 + width - 13])
-    plot(x, y, 'k-', x1, y1, 'k-', x2, y2, 'k-', x3, y3, 'k-',
-         x21, y21, 'k--', x31, y31, 'k--', r1, r2, 'k-', r11, r12, 'k-', r13, r14,
+    plot(x, y, 'm-', x1, y1, 'm-', x2, y2, 'm-', x3, y3, 'm-',
+         x21, y21, 'm--', x31, y31, 'm--', r1, r2, 'k-', r11, r12, 'k-', r13, r14,
          'k-', arrow11, arrow12, 'k-', arrow21, arrow22, 'k-')
+
     fill(x, y, 'plum')
     fill(x1, y1, 'plum')
-
 show()

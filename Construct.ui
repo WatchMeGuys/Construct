@@ -177,7 +177,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Имя элемента</string>
+     <string>Элемент</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -189,8 +189,11 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
     <property name="currentText">
-     <string>ПН-152-1,5</string>
+     <string>ПС-89-1,2</string>
     </property>
     <item>
      <property name="text">
@@ -568,30 +571,17 @@
      <string>ТУ 243320-001-58854924-2019</string>
     </property>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>11</x>
-      <y>636</y>
-      <width>1181</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>588</y>
+      <x>10</x>
+      <y>600</y>
       <width>1181</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Run</string>
+     <string>Создать файл</string>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -665,6 +655,47 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1201</width>
+      <height>701</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>profile_images/kisspng-wallpaper-blue-triangular-border-5a94b51270f6e5.8959195915196951224627.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>label_2</zorder>
+   <zorder>check_access_button</zorder>
+   <zorder>way_to_supreme_btn</zorder>
+   <zorder>user_name</zorder>
+   <zorder>label_is_premium</zorder>
+   <zorder>Project_name</zorder>
+   <zorder>label_8</zorder>
+   <zorder>Element_name</zorder>
+   <zorder>label_9</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>label_3</zorder>
+   <zorder>Length</zorder>
+   <zorder>label</zorder>
+   <zorder>label_7</zorder>
+   <zorder>Amount</zorder>
+   <zorder>label_6</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>line</zorder>
+   <zorder>photo</zorder>
+   <zorder>sizeLength</zorder>
+   <zorder>ProfileLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -705,7 +736,6 @@
    <addaction name="menuSettings"/>
    <addaction name="menu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionChange_username">
    <property name="text">
     <string>Пользователь</string>

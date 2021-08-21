@@ -587,12 +587,6 @@ class Updater:
 def lengthCheck():
     form.sizeLength.setText(str(form.Length.text()))
 
-#def graphics_view():
-    #painter = QPainter()
-    #painter.setPen(QPen(Qt.black, 5, Qt.SolidLine))
-    #painter.setBrush(QBrush(Qt.red, Qt.SolidPattern))
-    #painter.drawRect(100, 15, 400, 200)
-    #rect = scene.addRect(-100, -100, 200, 200, blackPen, redBrush)
 # --------------------------------------------------
 #form.comboBox.indexChanged.connect(profileBoxCkeck)
 #form.pushButton.clicked.connect(on_click_select_folder)
@@ -606,18 +600,23 @@ form.ConstructAction.triggered.connect(info)
 form.actionElementBill.triggered.connect(reportVE)
 form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
+
 form.Length.textChanged.connect(runCheck)
 form.Length.textChanged.connect(lengthCheck)
+form.Length.setValidator(QDoubleValidator(0, 2000, 2))
+form.Length.setPlaceholderText("Введите длину")
+
 form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
-form.Length.setValidator(QDoubleValidator(0, 2000, 2))
+form.Project_name.setPlaceholderText("Имя проекта")
+form.Element_name.setPlaceholderText("Имя элемента")
+
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 form6.pushButton.clicked.connect(Updater.download_updater)
 form6.pushButton_2.clicked.connect(Updater.select_download_folder)
-#form.GV.clicked.connect(graphics_view)
 #Cursor = QCursor(QPixmap('profile_images/classic_grey.png'), 0, 0)
-#form.dashboard.setCursor(Cursor)
+#form.MainWindow.setCursor(Cursor)
 # ---------------------------------------------------
 print(current_machine_id)
 
