@@ -189,24 +189,287 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="currentText">
+     <string>ПН-152-1,5</string>
+    </property>
     <item>
      <property name="text">
-      <string>PN-152-1,5</string>
+      <string>ПС-89-1,2</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>TPN-152-1,5</string>
+      <string>ПС-89-1,5</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>PS-152-1,5</string>
+      <string>ПС-89-2,0</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>TPS-152-1,5</string>
+      <string>ПН-89-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-89-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-89-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-102-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-102-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-102-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-102-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-102-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-102-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-102-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-102-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-102-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-102-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-152-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-152-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-152-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-152-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-152-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-152-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-152-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-152-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-152-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-152-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-203-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-203-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-203-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-203-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-203-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-203-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-203-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-203-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-203-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-203-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-254-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-254-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-254-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-254-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-254-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-254-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-254-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-254-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-254-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-254-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-305-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-305-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПС-305-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-305-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПС-305-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-305-1,2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-305-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ПН-305-2,0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-305-1,5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>ТПН-305-2,0</string>
      </property>
     </item>
    </widget>
@@ -396,7 +659,7 @@
      </font>
     </property>
     <property name="text">
-     <string>PN-152-1,5</string>
+     <string>ПН-152-1,5</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

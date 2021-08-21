@@ -273,22 +273,22 @@ def profileShow(self):
     global encodedProfile
     global encodedWeight
     encodedProfile = str('SA-152-15-U-OUT')
-    if self == 'PN-152-1,5':
+    if self == 'ПН-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(3.13)
-    elif self == 'TPN-152-1,5':
+    elif self == 'ТПН-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
         encodedProfile = str('SA-152-15-TU-OUT')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(2.92)
-    elif self == 'PS-152-1,5':
+    elif self == 'ПС-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
         encodedProfile = str('SA-152-15-C-IN')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(3.13)
-    elif self == 'TPS-152-1,5':
+    elif self == 'ТПС-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
         form.ProfileLabel.setText(str(self))
@@ -396,7 +396,7 @@ def encrypt():
     if not encodedProfile:
         f.write(str(subEncodeProfile))
     else:
-        f.write(str(encodeProfile))
+        f.write(str(encodedProfile))
     #f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
