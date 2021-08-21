@@ -396,7 +396,7 @@ def encrypt():
     if not encodedProfile:
         f.write(str(subEncodeProfile))
     else:
-        f.write(str(subEncodeProfile))
+        f.write(str(encodeProfile))
     #f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
