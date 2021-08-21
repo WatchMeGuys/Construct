@@ -309,7 +309,7 @@ def encrypt():
     profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
-    fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text() + ' - ' + str(form.Length.text())+ 'mm')
+    fileName = str(form.Element_name.text() + '_' + str(form.Length.text()))
     #text = "\:"
     #encodedProfile = str('')
     year = '{:02d}'.format(current_time.year)
