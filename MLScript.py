@@ -276,17 +276,16 @@ def perforation_check():
             for i in range(0, n - 1):
                 width_254_305(holeX1, holeY1, holeX2, holeY2, holeX3, holeY3, holeX4, holeY4, holeX5, holeY5, holeX6,
                               holeY6, holeX7, holeY7, holeX8, holeY8, holeX9, holeY9, holeX10, holeY10, holeX1_neg,
-                              holeY1_neg, holeX2_neg, holeY2_neg,
-                              holeX3_neg, holeY3_neg, holeX4_neg,
+                              holeY1_neg, holeX2_neg, holeY2_neg, holeX3_neg, holeY3_neg, holeX4_neg,
                               holeY4_neg, holeX5_neg, holeY5_neg, holeX6_neg, holeY6_neg, holeX7_neg, holeY7_neg,
                               holeX8_neg, holeY8_neg, holeX9_neg, holeY9_neg, holeX10_neg, holeY10_neg, i)
             plot(x, y, 'k-', x1, y1, 'k-', r1, r2, 'k-', r11, r12, 'k-', r13, r14, 'k-', arrow11, arrow12, 'k-',
                  arrow21, arrow22, 'k-', holeX1, holeY1, 'k-', holeX2, holeY2, 'k-', holeX3, holeY3, 'k-', holeX4,
                  holeY4, 'k-', holeX5, holeY5, 'k-', holeX6, holeY6, 'k-', holeX7, holeY7, 'k-', holeX8, holeY8, 'k-',
-                 holeX9, holeY9, 'k-', holeX10, holeY10, 'k-',
-                 holeX1_neg, holeY1_neg, 'k-', holeX2_neg, holeY2_neg, 'k-', holeX3_neg, holeY3_neg, 'k-', holeX4_neg,
-                 holeY4_neg, 'k-', holeX5_neg, holeY5_neg, 'k-', holeX6_neg, holeY6_neg, 'k-', holeX7_neg, holeY7_neg,
-                 'k-', holeX8_neg, holeY8_neg, 'k-', holeX9_neg, holeY9_neg, 'k-', holeX10_neg, holeY10_neg, 'k-')
+                 holeX9, holeY9, 'k-', holeX10, holeY10, 'k-', holeX1_neg, holeY1_neg, 'k-', holeX2_neg, holeY2_neg,
+                 'k-', holeX3_neg, holeY3_neg, 'k-', holeX4_neg, holeY4_neg, 'k-', holeX5_neg, holeY5_neg, 'k-',
+                 holeX6_neg, holeY6_neg, 'k-', holeX7_neg, holeY7_neg, 'k-', holeX8_neg, holeY8_neg, 'k-', holeX9_neg,
+                 holeY9_neg, 'k-', holeX10_neg, holeY10_neg, 'k-')
 
 
 def width_102(x1, y1, x2, y2, x3, y3, x4, y4, x1_neg, y1_neg, x2_neg, y2_neg, x3_neg, y3_neg, x4_neg, y4_neg, n):
@@ -345,9 +344,8 @@ def width_203(x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7, x8, y8, x1
 
 
 def width_254_305(x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7, x8, y8, x9, y9, x10, y10, x1_neg, y1_neg,
-                  x2_neg, y2_neg, x3_neg,
-                  y3_neg, x4_neg, y4_neg, x5_neg, y5_neg, x6_neg, y6_neg, x7_neg, y7_neg, x8_neg, y8_neg, x9_neg,
-                  y9_neg, x10_neg, y10_neg, n):
+                  x2_neg, y2_neg, x3_neg, y3_neg, x4_neg, y4_neg, x5_neg, y5_neg, x6_neg, y6_neg, x7_neg, y7_neg,
+                  x8_neg, y8_neg, x9_neg, y9_neg, x10_neg, y10_neg, n):
     x1 += 100
     x2 += 100
     x3 += 100
@@ -369,10 +367,9 @@ def width_254_305(x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6, x7, y7, x8, y8
     x9_neg += 100
     x10_neg += 100
     plot(x1, y1, 'k-', x2, y2, 'k-', x3, y3, 'k-', x4, y4, 'k-', x5, y5, 'k-', x6, y6, 'k-', x7, y7, 'k-', x8, y8, 'k-',
-         x9, y9, 'k-', x10, y10, 'k-',
-         x1_neg, y1_neg, 'k-', x2_neg, y2_neg, 'k-', x3_neg, y3_neg, 'k-', x4_neg, y4_neg, 'k-',
-         x5_neg, y5_neg, 'k-', x6_neg, y6_neg, 'k-', x7_neg, y7_neg, 'k-', x8_neg, y8_neg, 'k-', x9_neg, y9_neg, 'k-',
-         x10_neg, y10_neg, 'k-')
+         x9, y9, 'k-', x10, y10, 'k-', x1_neg, y1_neg, 'k-', x2_neg, y2_neg, 'k-', x3_neg, y3_neg, 'k-', x4_neg, y4_neg,
+         'k-', x5_neg, y5_neg, 'k-', x6_neg, y6_neg, 'k-', x7_neg, y7_neg, 'k-', x8_neg, y8_neg, 'k-', x9_neg, y9_neg,
+         'k-', x10_neg, y10_neg, 'k-')
 
 
 profile = input('Введите профиль ')
