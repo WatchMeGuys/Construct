@@ -12,9 +12,9 @@ from mysql.connector import connect, Error
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
-from PyQt5.QtGui import QDoubleValidator, QCursor, QPixmap
+from PyQt5.QtGui import QDoubleValidator, QCursor, QPixmap, QRegExpValidator
 from PyQt5.QtGui import QPainter, QPen, QBrush
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QRegExp
 
 
 # pyinstaller -F -w main.py создание ярлыка
@@ -610,6 +610,9 @@ form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
 form.Project_name.setPlaceholderText("Имя проекта")
 form.Element_name.setPlaceholderText("Имя элемента")
+rx = QRegExp("[A-Za-z0-9]{0,30}$")
+form.Element_name.setValidator(QRegExpValidator(rx))
+form.Project_name.setValidator(QRegExpValidator(rx))
 
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
