@@ -674,6 +674,82 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="length_tip">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>140</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>profile_images/5a352ae08e2e47.2912994715134338245824.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="amount_tip">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>180</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>profile_images/5a352ae08e2e47.2912994715134338245824.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="project_tip">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>220</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>profile_images/5a352ae08e2e47.2912994715134338245824.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="element_tip">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>260</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>profile_images/5a352ae08e2e47.2912994715134338245824.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>label_4</zorder>
    <zorder>label_2</zorder>
    <zorder>check_access_button</zorder>
@@ -696,6 +772,10 @@
    <zorder>photo</zorder>
    <zorder>sizeLength</zorder>
    <zorder>ProfileLabel</zorder>
+   <zorder>length_tip</zorder>
+   <zorder>amount_tip</zorder>
+   <zorder>project_tip</zorder>
+   <zorder>element_tip</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

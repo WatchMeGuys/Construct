@@ -606,6 +606,11 @@ form.Length.textChanged.connect(lengthCheck)
 form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 form.Length.setPlaceholderText("Введите длину")
 
+form.length_tip.setToolTip('Длина профиля')
+form.amount_tip.setToolTip('Количество профилей в одном файле')
+form.project_tip.setToolTip('Имя проекта <b>латинскими буквами</b>')
+form.element_tip.setToolTip('Имя елемента <b>латинскими буквами</b>')
+
 form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
 form.Project_name.setPlaceholderText("Имя проекта")
