@@ -611,8 +611,7 @@ form.comboBox.currentTextChanged.connect(profileShow)
 
 form.Length.textChanged.connect(runCheck)
 form.Length.textChanged.connect(lengthCheck)
-form.Length.setValidator(QDoubleValidator(0, 2000, 2))
-form.Length.setPlaceholderText("Введите длину")
+
 
 form.length_tip.setToolTip('Длина профиля')
 form.amount_tip.setToolTip('Количество профилей в одном файле')
@@ -623,6 +622,9 @@ form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
 form.Project_name.setPlaceholderText("Имя проекта")
 form.Element_name.setPlaceholderText("Имя элемента")
+form.Length.setPlaceholderText("Введите длину")
+
+form.Length.setValidator(QDoubleValidator(0, 2000, 2))
 rx = QRegExp("[A-Za-z0-9]{0,30}$")
 form.Element_name.setValidator(QRegExpValidator(rx))
 form.Project_name.setValidator(QRegExpValidator(rx))
