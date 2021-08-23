@@ -147,9 +147,9 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>250</y>
-      <width>291</width>
+      <width>281</width>
       <height>271</height>
      </rect>
     </property>
@@ -160,7 +160,7 @@
      <enum>Qt::AutoText</enum>
     </property>
     <property name="pixmap">
-     <pixmap>profile_images/Construct.png</pixmap>
+     <pixmap>../profile_images/Construct.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

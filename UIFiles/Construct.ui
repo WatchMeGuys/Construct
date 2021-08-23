@@ -607,7 +607,7 @@
      </rect>
     </property>
     <property name="pixmap">
-     <pixmap>profile_images/PN-152-1,5.png</pixmap>
+     <pixmap>../profile_images/PN-152-1,5.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -668,7 +668,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>profile_images/kisspng-wallpaper-blue-triangular-border-5a94b51270f6e5.8959195915196951224627.png</pixmap>
+     <pixmap>../profile_images/kisspng-wallpaper-blue-triangular-border-5a94b51270f6e5.8959195915196951224627.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
