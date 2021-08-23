@@ -12,7 +12,9 @@ from mysql.connector import connect, Error
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QFileDialog
-from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtGui import QDoubleValidator, QCursor, QPixmap, QRegExpValidator
+from PyQt5.QtGui import QPainter, QPen, QBrush
+from PyQt5.QtCore import Qt, QRegExp
 
 
 # pyinstaller -F -w main.py создание ярлыка
@@ -279,22 +281,22 @@ def profileShow(self):
     global encodedProfile
     global encodedWeight
     encodedProfile = str('SA-152-15-U-OUT')
-    if self == 'PN-152-1,5':
+    if self == 'ПН-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PN-152-1,5.png'))
         encodedProfile = str('SA-152-15-U-OUT')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(3.13)
-    elif self == 'TPN-152-1,5':
+    elif self == 'ТПН-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPN-152-1,5.png'))
         encodedProfile = str('SA-152-15-TU-OUT')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(2.92)
-    elif self == 'PS-152-1,5':
+    elif self == 'ПС-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/PS-152-1,5.png'))
         encodedProfile = str('SA-152-15-C-IN')
         form.ProfileLabel.setText(str(self))
         encodedWeight = float(3.13)
-    elif self == 'TPS-152-1,5':
+    elif self == 'ТПС-152-1,5':
         form.photo.setPixmap(QtGui.QPixmap('profile_images/TPS-152-1,5.png'))
         encodedProfile = str('SA-152-15-TC-IN')
         form.ProfileLabel.setText(str(self))
@@ -315,7 +317,7 @@ def encrypt():
     profileLength = str(form.Length.text())
     detail_id = int(1)
     detailBeam_id = int(1)
-    fileName = str(form.Project_name.text() + ' - ' + form.Element_name.text() + ' - ' + str(form.Length.text())+ 'mm')
+    fileName = str(form.Element_name.text() + '_' + str(form.Length.text()))
     #text = "\:"
     #encodedProfile = str('')
     year = '{:02d}'.format(current_time.year)
@@ -402,7 +404,7 @@ def encrypt():
     if not encodedProfile:
         f.write(str(subEncodeProfile))
     else:
-        f.write(str(subEncodeProfile))
+        f.write(str(encodedProfile))
     #f.write(str(encodedProfile))  # beam name is the name of profile that we use to encode (ТС-152-1,5 == SA-152-15-C-IN)
     f.write('</BeamName>')
     f.write("\n")
@@ -593,7 +595,6 @@ class Updater:
 def lengthCheck():
     form.sizeLength.setText(str(form.Length.text()))
 
-
 # --------------------------------------------------
 #form.comboBox.indexChanged.connect(profileBoxCkeck)
 #form.pushButton.clicked.connect(on_click_select_folder)
@@ -607,15 +608,31 @@ form.ConstructAction.triggered.connect(info)
 form.actionElementBill.triggered.connect(reportVE)
 form.actionUpdate_App.triggered.connect(Updater.updater)
 form.comboBox.currentTextChanged.connect(profileShow)
+
 form.Length.textChanged.connect(runCheck)
 form.Length.textChanged.connect(lengthCheck)
+form.Length.setValidator(QDoubleValidator(0, 2000, 2))
+form.Length.setPlaceholderText("Введите длину")
+
+form.length_tip.setToolTip('Длина профиля')
+form.amount_tip.setToolTip('Количество профилей в одном файле')
+form.project_tip.setToolTip('Имя проекта <b>латинскими буквами</b>')
+form.element_tip.setToolTip('Имя елемента <b>латинскими буквами</b>')
+
 form.Project_name.textChanged.connect(runCheck)
 form.Element_name.textChanged.connect(runCheck)
-form.Length.setValidator(QDoubleValidator(0, 2000, 2))
+form.Project_name.setPlaceholderText("Имя проекта")
+form.Element_name.setPlaceholderText("Имя элемента")
+rx = QRegExp("[A-Za-z0-9]{0,30}$")
+form.Element_name.setValidator(QRegExpValidator(rx))
+form.Project_name.setValidator(QRegExpValidator(rx))
+
 form3.pushButton.clicked.connect(checkSupremeAccess)
 form5.pushButton.clicked.connect(uname_change)
 form6.pushButton.clicked.connect(Updater.download_updater)
 form6.pushButton_2.clicked.connect(Updater.select_download_folder)
+#Cursor = QCursor(QPixmap('profile_images/classic_grey.png'), 0, 0)
+#form.MainWindow.setCursor(Cursor)
 # ---------------------------------------------------
 print(current_machine_id)
 
