@@ -25,13 +25,13 @@ def write_to_folder(directory='', ):
 print(os.path.realpath(__file__))
 dirname, filename = os.path.split(os.path.realpath(__file__))
 print(dirname)
-Form, Window = uic.loadUiType((dirname + "\\Construct.ui"))
+Form, Window = uic.loadUiType((dirname + "/UIFiles/Construct.ui"))
 # Form2, Window2 = uic.loadUiType((dirname + "\\licence_input.ui"))
-Form3, Window3 = uic.loadUiType((dirname + "\\supreme_access.ui"))
-Form4, Window4 = uic.loadUiType((dirname + "\\supreme_window.ui"))
-Form5, Window5 = uic.loadUiType((dirname + "\\username_change_window.ui"))
-Form6, Window6 = uic.loadUiType((dirname + "\\update.ui"))
-Form7, Window7 = uic.loadUiType((dirname + "\\InfoWindow.ui"))
+Form3, Window3 = uic.loadUiType((dirname + "/UIFiles/supreme_access.ui"))
+Form4, Window4 = uic.loadUiType((dirname + "/UIFiles/supreme_window.ui"))
+Form5, Window5 = uic.loadUiType((dirname + "/UIFiles/username_change_window.ui"))
+Form6, Window6 = uic.loadUiType((dirname + "/UIFiles/update.ui"))
+Form7, Window7 = uic.loadUiType((dirname + "/UIFiles/InfoWindow.ui"))
 
 app = QApplication([])
 window = Window()
@@ -151,6 +151,14 @@ def show_username():
     resp = username[3:-4]
     form.user_name.setText("Hello, " + resp + "!")
 
+# def show_username():
+#     url=("http://ggfhhrtrh.niklowkick.beget.tech/web_service.php")
+#     requests.get(url)
+#     url_uuid=("http://ggfhhrtrh.niklowkick.beget.tech/uuid.txt")
+#     url_get=("http://ggfhhrtrh.niklowkick.beget.tech/result.txt")
+#     response = requests.get(url_get)
+#     form.user_name.setText(str(response.text))
+#     print(response.text)
 
 def at_start_license():
     # ----------------------------------------------------------------------
